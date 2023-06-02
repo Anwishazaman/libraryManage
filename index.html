@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Karma">
+  <style>
+  
+  .dropdown {
+  position: relative;
+ 
+}
+.dropbtn:hover, .dropbtn:focus {
+ 
+}
+.services{
+  color: white;
+  border: none; 
+  background-color :transparent;
+}
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #a4a414;
+  min-width: 160px;
+  overflow: auto;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown a:hover {background-color: rgb(70, 84, 1);}
+
+.show {display: block;}
+
+  
+</style>
+<script>
+  if (navigator.geolocation) {
+  console.log('Geolocation is supported!');
+  }
+  else {
+  console.log('Geolocation is not supported for this Browser/OS.');
+  }
+</script>
+
+
+  <head>
+  <meta charset="UTF-8">
+	<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@700&display=swap" rel="stylesheet">
+	<link href="style.css" rel="stylesheet">
+
+    <title>MYLIB</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,500,600,700" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/open-iconic-bootstrap.min.css">
+    <link rel="stylesheet" href="css/animate.css">
+    
+    <link rel="stylesheet" href="css/owl.carousel.min.css">
+    <link rel="stylesheet" href="css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="css/magnific-popup.css">
+
+    <link rel="stylesheet" href="css/aos.css">
+
+    <link rel="stylesheet" href="css/ionicons.min.css">
+
+    <link rel="stylesheet" href="css/bootstrap-datepicker.css">
+    <link rel="stylesheet" href="css/jquery.timepicker.css">
+
+    
+    <link rel="stylesheet" href="css/flaticon.css">
+    <link rel="stylesheet" href="css/icomoon.css">
+    <link rel="stylesheet" href="css/style.css">
+  </head>
+  <body style="background: rgb(111, 34, 4)">
+  
+<script type="text/javascript">
+  window.__be = window.__be || {};
+  window.__be.id = "6159bae3d3a4b50007f5c16d";
+  (function() {
+      var be = document.createElement('script'); be.type = 'text/javascript'; be.async = true;
+      be.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'cdn.chatbot.com/widget/plugin.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(be, s);
+  })();
+</script>
+
+    
+	  <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" style="background-color: #a4a414" id="ftco-navbar">
+	    <div class="container">
+	      <a class="navbar-brand" href="index.html">MY<span>LIB</span></a>
+	      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+	        <span class="oi oi-menu"></span> Menu
+	      </button>
+
+	      <div class="collapse navbar-collapse" id="ftco-nav">
+	        <ul class="navbar-nav ml-auto">
+	          <li class="nav-item active"><a href="index.html" class="nav-link">HOME</a></li>
+      
+	          <li class="nav-item"><a href="filter.html" class="nav-link">BROWSE BOOKS</a></li>
+	          
+	          <li class="nav-item"><a href="contact.html" class="nav-link">CONTACT</a></li>
+              <!-- <input type="submit" value="" /> -->
+            </a>
+	        </ul>
+	      </div>
+	    </div>
+	  </nav>
+    <!-- END nav -->
+
+    <section class="home-slider owl-carousel">
+      <div class="slider-item" style="background-image: url('images/bg_1.jpg');">
+        
+        <div class="overlay"></div>
+        <div class="container">
+          <div class="row slider-text align-items-center" data-scrollax-parent="true">
+            <div class="col-md-6 col-sm-12 ftco-animate" data-scrollax=" properties: { translateY: '70%' }">
+              <h1 class="mb-4" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">WE DELIVER THE BEST</h1>
+              <p class="mb-4" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">We emphasize knowledge among the students of young generation</p>
+            
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="slider-item" style="background-image: url('images/bg_2.jpg');">
+        <div class="overlay"></div>
+        <div class="container">
+          <div class="row slider-text align-items-center" data-scrollax-parent="true">
+            <div class="col-md-6 col-sm-12 ftco-animate" data-scrollax=" properties: { translateY: '70%' }">
+              <h1 class="mb-4" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">WE DELIVER KNOWLEDGE</h1>
+              <p class="mb-4"> Learning is the only key step to success and a life with immense happiness because books lets you to escape reality</p>
+              
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="slider-item" style="background-image: url('images/gallery-4.jpg');">
+        <div class="overlay"></div>
+        <div class="container">
+          <div class="row slider-text align-items-center" data-scrollax-parent="true">
+            <div class="col-md-6 col-sm-12 ftco-animate" data-scrollax=" properties: { translateY: '70%' }">
+              <h1 class="mb-4" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">EASY PEASY BUYING</h1>
+              <p class="mb-4">Can easily buy books without having to follow up through tons of procedure,and save time for developing your knowledge</p>
+              
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+  
+  
+    <section class="ftco-section ftco-services">
+      <div class="container">
+      	<div class="row justify-content-center mb-5 pb-5">
+          <div class="col-md-7 text-center heading-section ftco-animate">
+            <h2 class="mb-2">MYLIB</h2>
+
+            
+           
+          </div>
+        </div>
+        <div class="row">
+          <p>Libraries are commonly considered educational institutions, providing students and researchers the tools and resources they need to learn and study.</p>
+          <p>In fact, libraries have long been dubbed “the people’s university,” for their equitable nature, bringing information and education to all people, regardless of socioeconomic status. </p>
+          <br>
+          
+          <p>Many of us envision our libraries full of books, encyclopedias, computers, and workspaces, but what we often neglect to include in that description is offerings like film and music, access to other learning avenues like local zoos or botanical gardens, 3D printers, WiFi hotspot lending programs, art lending programs, recording studios, or even blood pressure monitors. </p>
+          <br>
+          
+          <p>So our library MYLIB not only offers books to the users but also with immensive knowledge about real time cases.We also have different genres of books which the user can choose and select to read anytime they want .Also we provide a free onetime policy of reading books and other times with minimum price and lots of discount offers.</p>
+      </div>
+      
+    </section>
+
+
+    <section class="ftco-section">
+      <div class="container">
+      	<div class="row justify-content-center mb-5 pb-5">
+          <div class="col-md-7 text-center heading-section ftco-animate">
+            <h2 class="mb-3">GENRE</h2>
+      
+            <p>Choose any desired genre which you want and have the best time</p>
+            <div class="w3-main w3-content w3-padding" style="max-width:1200px;margin-top:100px">
+
+              <!-- First Photo Grid-->
+              <div class="w3-row-padding w3-padding-16 w3-center" id="food">
+                <div class="w3-quarter">
+                  <img src="images/children.jpg" alt="Sandwich" style="width:100%">
+                  <h3>CHILDREN</h3>
+                  <p></p>
+                </div>
+                <div class="w3-quarter">
+                  <img src="images/history.jpg" alt="Steak" style="width:100%">
+                  <h3>HISTORY</h3>
+                </div>
+                <div class="w3-quarter">
+                  <img src="images/thriller.jpg" alt="Cherries" style="width:100%">
+                  <h3>THRILLER</h3>                  
+                </div>
+                <div class="w3-quarter">
+                  <img src="images/travel.jpg" alt="Pasta and Wine" style="width:100%">
+                  <h3>TRAVEL</h3>
+                </div>
+              </div>
+              
+              <!-- Second Photo Grid-->
+              <div class="w3-row-padding w3-padding-16 w3-center">
+                <div class="w3-quarter">
+                  <img src="images/horror.jpg" alt="Popsicle" style="width:100%">
+                  <h3>HORROR</h3>
+                </div>
+                <div class="w3-quarter">
+                  <img src="images/romance.jpg" alt="Salmon" style="width:100%">
+                  <h3>ROMANCE</h3>
+                </div>
+                <div class="w3-quarter">
+                  <img src="images/crime.jpg" alt="Sandwich" style="width:100%">
+                  <h3>CRIME</h3>
+                </div>
+                <div class="w3-quarter">
+                  <img src="images/culture.jpg" alt="Croissant" style="width:100%">
+                  <h3>CULTURE</h3>
+                </div>
+              </div>
+            
+
+          </div>
+        </div>
+        <div class="row">
+
+        	</div>
+
+
+        		</div>
+        	</div>
+
+
+        
+                </div>
+              </div>
+           
+
+		<h2 class="mb-2" style= " color :rgb(24, 158, 192) "><center>MYLIB GALLERY</center></h2>
+		<section class="ftco-gallery">
+    	<div class="container-wrap">
+    		<div class="row no-gutters">
+					<div class="col-md-3 ftco-animate">
+						<a href="#" class="gallery img d-flex align-items-center" style="background-image: url(images/gallery-1.jpg);">
+							<div class="icon mb-4 d-flex align-items-center justify-content-center">
+    						<span class="icon-search"></span>
+    					</div>
+						</a>
+					</div>
+					<div class="col-md-3 ftco-animate">
+						<a href="#" class="gallery img d-flex align-items-center" style="background-image: url(images/gallery-2.jpg);">
+							<div class="icon mb-4 d-flex align-items-center justify-content-center">
+    						<span class="icon-search"></span>
+    					</div>
+						</a>
+					</div>
+					<div class="col-md-3 ftco-animate">
+						<a href="#" class="gallery img d-flex align-items-center" style="background-image: url(images/gallery-3.jpg);">
+							<div class="icon mb-4 d-flex align-items-center justify-content-center">
+    						<span class="icon-search"></span>
+    					</div>
+						</a>
+					</div>
+					<div class="col-md-3 ftco-animate">
+						<a href="#" class="gallery img d-flex align-items-center" style="background-image: url(images/gallery-4.jpg);">
+							<div class="icon mb-4 d-flex align-items-center justify-content-center">
+    						<span class="icon-search"></span>
+    					</div>
+						</a>
+					</div>
+        </div>
+    	</div>
+    </section>
+
+    
+       
+        <div class="row">
+          <div class="col-md-4 ftco-animate">
+            <div class="blog-entry">
+              <a href="#" class="block-20" style="background-image: url('images/image-1.jpg');">
+              </a>
+              <div class="text d-flex py-4">
+                
+                
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 ftco-animate">
+            <div class="blog-entry" data-aos-delay="100">
+              <a href="#" class="block-20" style="background-image: url('images/image-2.jpg');">
+              </a>
+              <div class="text d-flex py-4">
+                
+                
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 ftco-animate">
+            <div class="blog-entry" data-aos-delay="200">
+              <a href="#" class="block-20" style="background-image: url('images/image-3.jpg');">
+              </a>
+ 
+                </div>
+                
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+  <script src="js/jquery.min.js"></script>
+  <script src="js/jquery-migrate-3.0.1.min.js"></script>
+  <script src="js/popper.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/jquery.easing.1.3.js"></script>
+  <script src="js/jquery.waypoints.min.js"></script>
+  <script src="js/jquery.stellar.min.js"></script>
+  <script src="js/owl.carousel.min.js"></script>
+  <script src="js/jquery.magnific-popup.min.js"></script>
+  <script src="js/aos.js"></script>
+  <script src="js/jquery.animateNumber.min.js"></script>
+  <script src="js/bootstrap-datepicker.js"></script>
+  <script src="js/jquery.timepicker.min.js"></script>
+  <script src="js/scrollax.min.js"></script>
+
+  <script src="js/main.js"></script>
+  <script>
+    /* When the user clicks on the button, 
+    toggle between hiding and showing the dropdown content */
+    function myFunction() {
+      document.getElementById("myDropdown").classList.toggle("show");
+    }
+    
+    // Close the dropdown if the user clicks outside of it
+    window.onclick = function(event) {
+      if (!event.target.matches('.nav-link')) {
+        var dropdowns = document.getElementsByClassName("dropdown-content");
+        var i;
+        for (i = 0; i < dropdowns.length; i++) {
+          var openDropdown = dropdowns[i];
+          if (openDropdown.classList.contains('show')) {
+            openDropdown.classList.remove('show');
+          }
+        }
+      }
+    }
+    </script>
+    
+  </body>
+</html>

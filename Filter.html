@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Karma">
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        #myInput {
+            background-image: url('/css/searchicon.png');
+            background-position: 10px 10px;
+            background-repeat: no-repeat;
+            width: 100%;
+            font-size: 16px;
+            padding: 12px 20px 12px 40px;
+            border: 1px solid #ddd;
+            margin-bottom: 12px;
+        }
+
+        #myTable {
+            border-collapse: collapse;
+            width: 100%;
+            border: 1px solid #ddd;
+            font-size: 18px;
+        }
+
+        #myTable th,
+        #myTable td {
+            text-align: left;
+            padding: 12px;
+        }
+
+        #myTable tr {
+            border-bottom: 1px solid #ddd;
+        }
+
+        #myTable tr.header,
+        #myTable tr:hover {
+            background-color: #f1f1f1;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h2>My Library</h2>
+
+    <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names.." title="Type in a name">
+
+    <table id="myTable">
+        <tr class="header">
+            <th style="width:5%;">Id</th>
+            <th style="width:30%;">Title</th>
+            <th style="width:20%;">Author</th>
+            <th style="width:20%;">Subject</th>
+            <th style="width:25%;">Publish Date</th>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>MAGAZZINI ALIMENTARI</td>
+            <td>RIZA JAHAN</td>
+            <td>MYSTERY</td>
+            <td>19-09-1998</td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>LEARNING ARTS OF INDIA</td>
+            <td>HOFMAN SHEWANG</td>
+            <td>CULTURE</td>
+            <td>14-08-2019</td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>SOMEONE IN THE DARK</td>
+            <td>FOLMAN HOGYE</td>
+            <td>THRILLER</td>
+            <td>19-09-1998</td>
+        </tr>
+        <tr>
+            <td>4</td>
+            <td>HAUNTED BODY</td>
+            <td>RIZA JAHAN</td>
+            <td>HORROR</td>
+            <td>16-03-2002</td>
+        </tr>
+        <tr>
+            <td>5</td>
+            <td>THE IRELAND BUISNESS</td>
+            <td>CAMELIO ROSH</td>
+            <td>HISTORY</td>
+            <td>07-20-1992</td>
+        </tr>
+        <tr>
+            <td>6</td>
+            <td>A PLACE CALLED HOME</td>
+            <td>COOLEEN HOOVER</td>
+            <td>ROMANCE</td>
+            <td>07-20-1992</td>
+        </tr>
+        <tr>
+            <td>7</td>
+            <td>CLASSIC HOUSE</td>
+            <td>COOLEEN HOOVER</td>
+            <td>MYSTERY</td>
+            <td>13-08-1996</td>
+        </tr>
+        <tr>
+            <td>8</td>
+            <td>THE INDIA STORY</td>
+            <td>CAMELIO ROSH</td>
+            <td>HISTORY</td>
+            <td>23-03-2023</td>
+        </tr>
+    </table>
+    <h3 id="TotalCount">Total Count : 8</h2>
+        <div id="DataListTable"></div>
+        <a href="#" onclick="prevPage()" id="btn_prev">Prev</a>
+        <a href="#" onclick="nextPage()" id="btn_next">Next</a>
+        page: <span id="page"></span>
+        <script>
+            // function myFunction() {
+            //   var input, filter, table, tr, td, i, txtValue;
+            //   input = document.getElementById("myInput");
+            //   filter = input.value.toUpperCase();
+            //   table = document.getElementById("myTable");
+            //   tr = table.getElementsByTagName("tr");
+            //   for (i = 0; i < tr.length; i++) {
+            //     td = tr[i].getElementsByTagName("td")[0];
+            //     if (td) {
+            //       txtValue = td.textContent || td.innerText;
+            //       if (txtValue.toUpperCase().indexOf(filter) > -1) {
+            //         tr[i].style.display = "";
+            //       } else {
+            //         tr[i].style.display = "none";
+            //       }
+            //     }       
+            //   }
+            // }
+            function RefreshPage() {
+    setTimeout(function() {
+      var msg = document.getElementById("myInput").innerText;
+      console.log(111111111);
+      if (msg === "") {
+        window.location.reload();
+      }
+    }, 10000);
+
+  }
+            const myFunction = () => {
+                changePage(1);
+                const trs = document.querySelectorAll('#myTable tr:not(.header)')
+                const filter = document.querySelector('#myInput').value
+                RefreshPage()
+                const regex = new RegExp(filter, 'i')
+                const isFoundInTds = td => regex.test(td.innerHTML)
+                const isFound = childrenArr => childrenArr.some(isFoundInTds)
+                console.log(isFoundInTds);
+                const setTrStyleDisplay = ({ style, children }) => {
+                    style.display = isFound([
+                        ...children // <-- All columns
+                    ]) ? '' : 'none'
+                }
+
+                trs.forEach(setTrStyleDisplay)
+                console.log(setTrStyleDisplay);
+
+
+
+                var rowCount = 0;
+                var table = document.getElementById("myTable");
+                var rows = table.getElementsByTagName("tr");
+                for (var i = 0; i < rows.length; i++) {
+                    if (rows[i].style.display == 'none') continue;
+                    if (rows[i].getElementsByTagName("td").length > 0) {
+                        rowCount++;
+                    }
+                }
+                // for the header row
+                console.log(rowCount);
+                document.getElementById("TotalCount").innerHTML = "Total Count : " + rowCount;
+                // var current_page = 1;
+                var records_per_page = 3;
+                var listing_table = document.getElementById("myTable");
+                var page_span = document.getElementById("page");
+                var mySet = new Set();
+                page = 1;
+                // if (page > numPages()) page = numPages();
+                var cnt = 1;
+                [...listing_table.getElementsByTagName('tr')].forEach((tr) => {
+
+                    if (cnt != 1 && tr.style.display == "") mySet.add(tr.firstElementChild.innerHTML);
+                    cnt = 2;
+                    tr.style.display = 'none'; // reset all to not display
+                });
+                console.log(mySet);
+                listing_table.rows[0].style.display = ""; // display the title row
+                console.log(page + records_per_page);
+                for (var i = (page - 1) * records_per_page + 1; i < (page * records_per_page) + 1; i++) {
+                    console.log(i + " " + mySet.has(i + ""));
+                    if (listing_table.rows[i] && mySet.has(i + "")) {
+                        listing_table.rows[i].style.display = ""
+                    } else {
+                        continue;
+                    }
+                }
+
+                // page_span.innerHTML = page + "/" + numPages();
+
+                // if (page == 1) {
+                //     btn_prev.style.visibility = "hidden";
+                // } else {
+                //     btn_prev.style.visibility = "visible";
+                // }
+
+                // if (page == numPages()) {
+                //     btn_next.style.visibility = "hidden";
+                // } else {
+                //     btn_next.style.visibility = "visible";
+                // }
+            }
+            // var table = document.getElementById("myTable");
+
+            // var rowsPerPage = 5;
+
+            // var rowCount = table.rows.length;
+
+            // var tableHead= table.rows[0].firstElementChild.tagName === "TH";
+
+            // var tr = [];
+
+            // var i,ii,j = (tableHead) ? 1 : 0;
+
+
+            // var th = (tableHead ? table.rows[(0)].outerHTML : "");
+
+            // var pageCount = Math.ceil(table.rows.length / rowsPerPage);
+
+            // if (pageCount > 1) {
+
+            // for (i = j, ii = 0; i < rowCount; i++, ii++){
+
+            // tr[ii] = table.rows[i].outerHTML;
+
+            // }
+
+            // table.insertAdjacentHTML("afterend","<br><div id='buttons'></div");
+
+            // // sort(1);
+
+            // }
+            // const functionsort = (page) =>  {
+            // var rows = th, s = ((rowsPerPage * page)- rowsPerPage);
+            // for (i = s; i < (s + rowsPerPage) && i < tr.length; i++)
+            //   rows += tr[i];
+            //   table.innerHTML = rows;
+            // document.getElementById("buttons").innerHTML = pageButtons(pageCount, page);
+            // }
+            // const pageButtons = (pageCount,current) => {
+            // var prevButton = (current == 1)? "disabled" : "";
+            // var nextButton = (current == pageCount)? "disabled" : "";
+            // var buttons = "<input type='button' value='";
+            // for (i = 1; i <= pageCount; i++){
+            //   buttons += "";
+            //   }
+            //  buttons += "' onclick='sort("+(current + 1)+")' "+ nextButton +">";
+            // return buttons;
+            // }
+            var current_page = 1;
+            var records_per_page = 3;
+            var l = document.getElementById("myTable").rows.length
+
+            function prevPage() {
+
+                if (current_page > 1) {
+                    current_page--;
+                    changePage(current_page);
+                }
+            }
+
+            function nextPage() {
+                if (current_page < numPages()) {
+                    current_page++;
+                    changePage(current_page);
+                }
+            }
+
+            function changePage(page) {
+                var btn_next = document.getElementById("btn_next");
+                var btn_prev = document.getElementById("btn_prev");
+                // var listing_table = document.getElementById("myTable");
+                // var page_span = document.getElementById("page");
+
+                // // Validate page
+                // if (page < 1) page = 1;
+                // if (page > numPages()) page = numPages();
+
+                // [...listing_table.getElementsByTagName('tr')].forEach((tr)=>{
+                //     tr.style.display='none'; // reset all to not display
+                // });
+
+                const trs = document.querySelectorAll('#myTable tr:not(.header)')
+                const filter = document.querySelector('#myInput').value
+                const regex = new RegExp(filter, 'i')
+                const isFoundInTds = td => regex.test(td.innerHTML)
+                const isFound = childrenArr => childrenArr.some(isFoundInTds)
+                console.log(isFoundInTds);
+                const setTrStyleDisplay = ({ style, children }) => {
+                    style.display = isFound([
+                        ...children // <-- All columns
+                    ]) ? '' : 'none'
+                }
+
+                trs.forEach(setTrStyleDisplay)
+                console.log(setTrStyleDisplay);
+
+
+
+                var rowCount = 0;
+                var table = document.getElementById("myTable");
+                var rows = table.getElementsByTagName("tr");
+                for (var i = 0; i < rows.length; i++) {
+                    if (rows[i].style.display == 'none') continue;
+                    if (rows[i].getElementsByTagName("td").length > 0) {
+                        rowCount++;
+                    }
+                }
+                // for the header row
+                console.log(rowCount);
+                document.getElementById("TotalCount").innerHTML = "Total Count : " + rowCount;
+                var records_per_page = 3;
+                var listing_table = document.getElementById("myTable");
+                var page_span = document.getElementById("page");
+                var mySet = new Set();
+                if (page < 1) page = 1;
+                if (page > numPages()) page = numPages();
+
+                // [...listing_table.getElementsByTagName('tr')].forEach((tr)=>{
+                //     tr.style.display='none'; // reset all to not display
+                // });
+                var cnt = 1;
+                [...listing_table.getElementsByTagName('tr')].forEach((tr) => {
+
+                    if (cnt != 1 && tr.style.display == "") mySet.add(tr.firstElementChild.innerHTML);
+                    cnt = 2;
+                    tr.style.display = 'none'; // reset all to not display
+                });
+                console.log(mySet);
+                listing_table.rows[0].style.display = ""; // display the title row
+                console.log(page + records_per_page);
+                for (var i = (page - 1) * records_per_page + 1; i < (page * records_per_page) + 1; i++) {
+                    console.log(i + " " + mySet.has(i + ""));
+                    if (listing_table.rows[i] && mySet.has(i + "")) {
+                        listing_table.rows[i].style.display = ""
+                    } else {
+                        continue;
+                    }
+
+                    page_span.innerHTML = page + "/" + numPages();
+
+                    if (page == 1) {
+                        btn_prev.style.visibility = "hidden";
+                    } else {
+                        btn_prev.style.visibility = "visible";
+                    }
+
+                    if (page == numPages()) {
+                        btn_next.style.visibility = "hidden";
+                    } else {
+                        btn_next.style.visibility = "visible";
+                    }
+                }
+            }
+                function numPages() {
+                    return Math.ceil((l - 1) / records_per_page);
+                }
+
+                window.onload = function () {
+                    changePage(current_page);
+                };
+//                 function RefreshPage() {
+//     setTimeout(function() {
+//       var msg = document.getElementById("myInput").innerText;
+//       console.log(111111111);
+//       if (msg === "") {
+//         window.location.reload();
+//       }
+//     }, 10000);
+
+//   };
+//   RefreshPage();
+        </script>
+
+<div class="w3-main w3-content w3-padding" style="max-width:1200px;margin-top:100px">
+
+    <!-- First Photo Grid-->
+    <div class="w3-row-padding w3-padding-16 w3-center" id="food">
+      <div class="w3-quarter">
+        <img src="images/alimentari.jpg" alt="Sandwich" style="width:100%">
+        <h3>MAGAZZINI ALIMENTARI</h3>
+        <p>Magazine having one of the secret written hidden mysteries which is breathtaking</p>
+      </div>
+      <div class="w3-quarter">
+        <img src="images/arts.jpg" alt="Steak" style="width:100%">
+        <h3>LEARNING ARTS OF INDIA</h3>
+        <p>Once again, comes the handwritten art of the famous writter about the rich culture of india</p>
+      </div>
+      <div class="w3-quarter">
+        <img src="images/dark.jpg" alt="Cherries" style="width:100%">
+        <h3>SOMEONE IN THE DARK</h3>
+        <p>Dark room are full of secrets but some can be life threatening too</p>
+        
+      </div>
+      <div class="w3-quarter">
+        <img src="images/haunted.jpg" alt="Pasta and Wine" style="width:100%">
+        <h3>HAUNTED BODY</h3>
+        <p>They say that ghosts are dead lives ,but can a body be haunted</p>
+      </div>
+    </div>
+    
+    <!-- Second Photo Grid-->
+    <div class="w3-row-padding w3-padding-16 w3-center">
+      <div class="w3-quarter">
+        <img src="images/ireland.jpg" alt="Popsicle" style="width:100%">
+        <h3>THE IRELAND BUSINESS</h3>
+        <p>Here comes the famous art of ireland buisness where we can see different techniques of their brilliant forms of art</p>
+      </div>
+      <div class="w3-quarter">
+        <img src="images/home.jpg" alt="Salmon" style="width:100%">
+        <h3>A PLACE CALLED HOME</h3>
+        <p>She was his home and she was his life but did she love him equally or did she love her soul more</p>
+      </div>
+      <div class="w3-quarter">
+        <img src="images/house.jpg" alt="Sandwich" style="width:100%">
+        <h3>CLASSIC HOUSE</h3>
+        <p>A house made of many artifacts and manuscripts which is older than 100 yrs.</p>
+      </div>
+      <div class="w3-quarter">
+        <img src="images/IndiaStory.jpg" alt="Croissant" style="width:100%">
+        <h3>THE INDIA STORY</h3>
+        <p>Discovering the only true forms of art in one of its brilliant ways</p>
+      </div>
+    </div>
+  
+
+</body>
+
+</html>
